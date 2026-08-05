@@ -16,4 +16,18 @@ export class LabsComponent {
     'Crear un servicio',
     'Crear un modelo',
   ];
+
+  person = {
+    name: 123,
+    age: 30
+  };  
+
+  changeHandler(event: Event) {
+    console.log("Event: ", event);
+  }
+
+  keydownHandler(event: KeyboardEvent) {
+    const input = event.target as HTMLInputElement;
+    console.log(input.value);
+  }
 }
