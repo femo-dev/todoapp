@@ -15,4 +15,14 @@ export class HomeComponent {
     'Crear un servicio',
     'Crear un modelo',
   ]);
+
+  changeHandler(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const newTask = input.value;
+    this.tasks.update((currentTasks) => [...currentTasks, newTask]);
+  }
+
+  deleteTask(index: number) {
+    this.tasks.update((currentTasks) => currentTasks.filter((_, position) => position !== index));
+  }
 }
