@@ -14,4 +14,14 @@
   <!-- <input type="text" [value]="person.age" (keydown.shift.t)="clickHandler($event)" /> -->
 
   <h1>Signals</h1>
+  <div *ngIf="name() === 'Fabián'; else elseBlock">
+    <h2>Hola, soy yo, {{ name() }}</h2>
+  </div>
+  <ng-template #elseBlock>
+    <h2>Hola {{ name() }}</h2>
+  </ng-template>
+  <hr />
+  <input type="color" [formControl]="colorCtrl">
+  <p>Color: {{ colorCtrl.value }}</p>
+  
 </div>
