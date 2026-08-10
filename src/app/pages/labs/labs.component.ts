@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormControl } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-labs',
@@ -28,6 +28,13 @@ export class LabsComponent {
 
   colorCtrl = new FormControl();
   withCtrl = new FormControl();
+  nameCtrl = new FormControl('', {
+    nonNullable: true,
+    validators: [
+      Validators.required,
+      Validators.minLength(3)
+    ]
+  });
 
   changeHandler(event: Event) {
     console.log("Event: ", event);

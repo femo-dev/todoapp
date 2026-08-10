@@ -31,4 +31,11 @@
   <hr />
   <input type="number" [formControl]="withCtrl">
   <span class="box" [style.width.px]="withCtrl.value"></span>
+  <hr />
+  <p>
+    <input type="text" [formControl]="nameCtrl"> <br />
+    <span class="message-error" [class.show]="nameCtrl.invalid && nameCtrl.touched">
+      Nombre invalido
+    </span>
+  </p>
 </div>

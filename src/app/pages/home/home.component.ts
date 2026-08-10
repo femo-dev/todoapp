@@ -90,4 +90,41 @@ export class HomeComponent {
       });
     });
   }
+
+  editTask(index: number) {
+    this.tasks.update((currentTasks) => {
+      return currentTasks.map((task, position) => {
+        if (position === index) {
+          return {
+            ...task,
+            editing: true
+          }
+        }
+        return {
+          ...task,
+          editing: false
+        };
+      });
+    });
+  }
+
+  saveTask(index: number, event: Event) {
+    const input = event.target as HTMLInputElement;
+    const title = input.value.trim();
+
+    if (title) {
+      this.tasks.update((currentTasks) => {
+        return currentTasks.map((task, position) => {
+          if (position === index) {
+            return {
+              ...task,
+              editing: false,
+              title
+            }
+          }
+          return task;
+        });
+      });
+    }
+  }
 }
