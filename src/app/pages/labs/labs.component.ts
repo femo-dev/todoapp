@@ -27,6 +27,7 @@ export class LabsComponent {
   };
 
   colorCtrl = new FormControl();
+  withCtrl = new FormControl();
 
   changeHandler(event: Event) {
     console.log("Event: ", event);
