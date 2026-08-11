@@ -72,13 +72,13 @@
             <!-- Remove this if you don't implement routing -->
             <ul class="filters">
                 <li>
-                    <a (click)="changeFilter('all')" routerLink="/" class="selected">All</a>
+                    <a (click)="changeFilter('all')" routerLink="/" [class.selected]="filter() === 'all'">All</a>
                 </li>
                 <li>
-                    <a (click)="changeFilter('pending')" routerLink="/pending">Pending</a>
+                    <a (click)="changeFilter('pending')" routerLink="/pending" [class.selected]="filter() === 'pending'">Pending</a>
                 </li>
                 <li>
-                    <a (click)="changeFilter('completed')" routerLink="/completed">Completed</a>
+                    <a (click)="changeFilter('completed')" routerLink="/completed" [class.selected]="filter() === 'completed'">Completed</a>
                 </li>
             </ul>
             <!-- Hidden if no completed items are left ↓ -->
