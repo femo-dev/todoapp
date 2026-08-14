@@ -31,8 +31,8 @@ export class HomeComponent {
   newTaskCtrl = new FormControl('', {
     nonNullable: true,
     validators: [
-      Validators.required,
-      Validators.minLength(3)
+      Validators.required/*,
+      Validators.minLength(3)*/
     ]
   });
 
@@ -85,6 +85,10 @@ export class HomeComponent {
 
   deleteTask(index: number) {
     this.tasks.update((currentTasks) => currentTasks.filter((_, position) => position !== index));
+  }
+
+  clearCompleted() {
+    this.tasks.update((currentTasks) => currentTasks.filter(task => !task.completed));
   }
 
   updateTask(index: number) {
