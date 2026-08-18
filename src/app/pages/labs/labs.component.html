@@ -14,12 +14,21 @@
   <!-- <input type="text" [value]="person.age" (keydown.shift.t)="clickHandler($event)" /> -->
 
   <h1>Signals</h1>
+  <!-- 
+  Condicional: legacy sintax
   <div *ngIf="name() === 'Fabián'; else elseBlock">
     <h2>Hola, soy yo, {{ name() }}</h2>
   </div>
   <ng-template #elseBlock>
     <h2>Hola {{ name() }}</h2>
-  </ng-template>
+  </ng-template> 
+  -->
+  <!-- Condicional: new sintax -->
+  @if (name() == 'nicolas') {
+    <div>Hola, soy yo, {{ name() }}</div>
+  } @else {
+    <div>Hola {{ name() }}</div>
+  }
   <hr />
   <input type="color" [formControl]="colorCtrl">
   <p>Color: {{ colorCtrl.value }}</p>
@@ -38,4 +47,23 @@
       Nombre invalido
     </span>
   </p>
+  <ul>
+    @for (task of tasks; track task; let i = $index) {
+      <li>{{ i }} {{ task }}</li>
+    } @empty {
+      <li>No tasks available</li>
+    }
+  </ul>
+
+  @switch (person.name) {
+    @case('Fabian') {
+      <p>Hola, soy {{ person.name }}</p>
+    } 
+    @case('Nicolas') {
+      <p>Hola, soy {{ person.name }}</p>
+    } 
+    @default {
+      <p>Hola, no soy Fabian ni Nicolas</p>
+     }
+    }   
 </div>
